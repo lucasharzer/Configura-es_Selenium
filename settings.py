@@ -17,10 +17,18 @@ class Settings:
     
     def hidden(self):
         self.options.add_argument("--headless")
+        # ou em casos de recursos avançados do Chrome
+        # self.options.add_argument("--headless=new")
         self.options.add_argument("--no-sandbox")
-        self.options.add_argument(f"user-agent={self.useragent}")
+        self.options.add_argument("--disable-dev-shm-usage")
         # ou 
         # self.options.headless = True
+        return self.options
+    
+    def humanize_navigation(self):
+        # Comando JavaScript: navigator.userAgent
+        self.options.add_argument(f"user-agent={self.useragent}")
+        self.options.add_argument("--disable-notifications")
         return self.options
     
     def profile(self):
