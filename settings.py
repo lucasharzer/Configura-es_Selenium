@@ -73,3 +73,37 @@ class Settings:
     def block_urls(self, driver):
         driver.execute_cdp_cmd("Network.setBlockedURLs", {"urls": [self.url]})
         driver.execute_cdp_cmd("Network.enable", {})
+
+    def no_images(self):
+        self.options.add_argument("--disable-images")
+        self.options.add_argument("--blink-settings=imagesEnabled=false")
+        return self.options
+    
+    def no_javascript(self):
+        self.options.add_argument("--disable-javascript")
+        return self.options
+    
+    def insecure_contents(self):
+        # permitir conteúdo não seguro
+        self.options.add_argument("--allow-running-insecure-content")
+        return self.options
+    
+    def no_extensions(self):
+        self.options.add_argument("--disable-gpu")
+        return self.options
+    
+    def no_web_security(self):
+        self.options.add_arguments("--disable-web-security")
+        return self.options
+    
+    def certificate_errors(self):
+        self.options.add_argument("--ignore-certificate-errors")
+        return self.options
+    
+    def certificate_errors(self):
+        self.options.add_argument("--ignore-certificate-errors")
+        return self.options
+    
+    def portuguese_language(self):
+        self.options.add_argument("--lang-pt-BR")
+        return self.options
